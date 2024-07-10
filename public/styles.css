@@ -431,3 +431,9 @@ html {
     color: #FFFFFFFF;
     border-radius: 5px;
 }
+
+@media print {
+    .tools {
+        display: none;
+    }
+}

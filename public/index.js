@@ -9,3 +9,7 @@ document.getElementById('sun').addEventListener('click', () => {
     document.getElementById('moon').hidden = false;
     document.getElementById('sun').hidden = true;
 });
+
+document.getElementById('print').addEventListener('click', () => {
+    window.print();
+});
