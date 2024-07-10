@@ -48,34 +48,71 @@ body {
     height: 297mm;
     width: 210mm;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+}
+
+html {
+    position: relative;
+}
+
+.tools {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.tools > div {
+    background-color: var(--white);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.tools > div img {
+    height: 50px;
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     height: 100%;
     background-color: var(--black);
     justify-content: space-around;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+
+    display: grid;
+    grid-template:
+        "top top" auto
+        "cursus techno" auto
+        "experience techno" auto
+        "project project" auto / 3fr 1fr;
+
+    gap: 20px;
 }
 
 .top {
+    grid-area: top;
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    background-color: var(--dark-black);
+    border-radius: 10px;
+    border: 2px solid var(--green);
+    padding: 15px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .header {
+    grid-area: header;
     position: relative;
     display: flex;
-    margin: 0 10px;
     height: fit-content;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: var(--dark-black);
     color: var(--white);
-    border: 2px solid var(--green);
 }
 
 .header .left {
@@ -95,22 +132,18 @@ body {
 
 .header img {
     position: absolute;
-    right: 10px;
-    top: 10px;
-    height: calc(100% - 20px);
+    right: 0;
+    top: -5px;
+    height: 113%;
     border-radius: 50%;
 }
 
 .contact {
+    grid-area: contact;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 0 10px;
-    padding: 10px;
-    background-color: var(--dark-black);
-    border-radius: 10px;
     color: #FFFFFFFF;
-    border: 2px solid var(--green);
     gap: 20px;
     font-size: 1.15em;
 }
@@ -123,15 +156,11 @@ body {
 }
 
 .bandeau {
+    grid-area: bandeau;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 10px;
-    padding: 10px;
-    background-color: var(--dark-black);
-    border-radius: 10px;
     color: var(--white);
-    border: 2px solid var(--green);
     gap: 20px;
 }
 
@@ -168,18 +197,8 @@ body {
     font-size: 1.2em;
 }
 
-.test {
-    display: grid;
-    grid-template:
-        "formation techno" auto
-        "experience techno" auto / 3fr 1fr;
-    margin: 0 10px;
-    row-gap: 20px;
-    column-gap: 10px;
-}
-
 .formation {
-    grid-area: formation;
+    grid-area: cursus;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -332,11 +351,11 @@ body {
     grid-area: text;
 }
 
-.projets {
+.projects {
+    grid-area: project;
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 0 10px;
     padding: 25px 10px 10px;
     background-color: var(--dark-black);
     border-radius: 10px;
@@ -345,7 +364,7 @@ body {
     gap: 15px;
 }
 
-.projets .element {
+.projects .element {
     display: grid;
     grid-template:
         "date label techno" auto
@@ -356,7 +375,7 @@ body {
     row-gap: 5px;
 }
 
-.projets .element .date {
+.projects .element .date {
     grid-area: date;
     background-color: var(--orange);
     padding: 2px 5px;
@@ -366,7 +385,7 @@ body {
     color: #191919FF;
 }
 
-.projets .element .label {
+.projects .element .label {
     grid-area: label;
     font-weight: bold;
     background-color: var(--green);
@@ -375,24 +394,24 @@ body {
     color: #FFFFFFFF;
 }
 
-.projets .element .techno {
+.projects .element .techno {
     grid-area: techno;
     display: flex;
     gap: 5px;
 }
 
-.projets .element .techno .item {
+.projects .element .techno .item {
     background-color: var(--red);
     padding: 2px 5px;
     border-radius: 5px;
     color: #FFFFFFFF;
 }
 
-.projets .element .text {
+.projects .element .text {
     grid-area: text;
 }
 
-.projets .element .link {
+.projects .element .link {
     grid-area: link;
     background-color: var(--white);
     color: var(--dark-black);
